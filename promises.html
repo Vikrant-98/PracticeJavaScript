@@ -1,0 +1,44 @@
+<script>
+    const pobj1 = new Promise((vikrant, reject) => {
+        setTimeout(() => {
+            const arr = [1, 2, 3, 4, 5];
+            vikrant(arr);
+            reject(`there is some error`);
+        }, 2000);
+    });
+
+    const getInfo = (data) =>{
+        return new Promise((dhoni,pant)=>{
+            setTimeout((data)=>{
+                let info = {
+                    name:'Vikrant',
+                    age:22
+                }
+                dhoni(`My number is ${data} my name is ${info.name} my age is ${info.age} `);
+                pant(`this is error`);
+            },2000,data)
+        })
+    }
+
+    // pobj1.then((responce) => {
+    //     console.log(responce);
+    //     getInfo(responce[1]).then((data)=>{
+    //         console.log(data);
+    //     }).catch((err)=>{
+    //         console.log(err);
+    //     })
+    // }).catch((err)=>{
+    //     console.log(err);
+    // });
+
+    async function getData(){
+        const obj1 = await pobj1;
+        console.log(obj1);
+        const obj2 = await getInfo(obj1[1]);        
+        console.log(obj2);
+
+    }
+
+    getData();
+
+</script>
